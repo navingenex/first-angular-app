@@ -2,15 +2,25 @@
   <div class="col-lg-12">
     <p class="lead">Add new server or blueprint</p>
     <label for="">Server Name</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerName" >
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerName" > -->
+    <!-- Local reference -->
+    <input 
+    type="text" 
+    class="form-control" 
+    #serverNameInput >
+    
     <label for="">Server Content</label>
-    <input type="text" class="form-control" [(ngModel)]="newServerContent" >
+    <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent" > -->
+    <input 
+    type="text" 
+    class="form-control" 
+    #serverContentInput >
     <br>
     <button 
     class="btn btn-success"
-    (click)="onAddServer()" >Add Server</button>
+    (click)="onAddServer(serverNameInput)" >Add Server</button>
     <button 
     class="btn btn-success"
-    (click)="onAddBlueprint()">Add Bluprint</button>
+    (click)="onAddBlueprint(serverNameInput)">Add Bluprint</button>
   </div>
 </div>

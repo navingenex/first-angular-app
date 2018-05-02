@@ -1,51 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="/">Reactive forms</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link " routerLink="/customdirective">Directive</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link " routerLink="/forms">Forms</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link " routerLink="/@input_@output">@Input@Output</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class=" container ">
+    <router-outlet></router-outlet>
+</div>
 <!-- Component interaction with @input -->
-<div class="container">
+<!-- <div class="container ">
     <app-cockpit 
-    (serverCreated)="onServerAdded($event)"
-    (blueprintCreated)="onBlueprintAdded($event)"
+    (serverCreated)="onServerAdded($event) "
+    (blueprintCreated)="onBlueprintAdded($event) "
     
      ></app-cockpit>
     <hr>
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row ">
+        <div class="col-md-12 ">
             <app-server-element 
-            *ngFor="let serverElement of serverElements" 
-            [srvElement]="serverElement" ></app-server-element>
+            *ngFor="let serverElement of serverElements " 
+            [srvElement]="serverElement " >
+            <!-- Using ng-content to display server element -->
+<!-- <p class="card-text ">
+                <strong *ngIf="serverElement.type==='server' " style="color:red " >{{serverElement.content}} </strong>
+                <em *ngIf="serverElement.type==='blueprint' " >{{serverElement.content}} </em>
+            </p>
+        </app-server-element>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <!-- Component interraction (@Input) -->
 <!-- <app-name-parent></app-name-parent> -->
 
 
-<!-- <div class="container">
+<!-- <div class="container ">
     <app-forms></app-forms>
 </div> -->
 
 <!-- Reactive forms -->
-<!-- <div class="container">
-    <h2 style="color: blue;">Angular Reactive Forms</h2>
+<!-- <div class="container ">
+    <h2 style="color: blue; ">Angular Reactive Forms</h2>
     <app-reactive-forms-demo></app-reactive-forms-demo>
 </div> -->
 
-<!-- <div class="container">
+<!-- <div class="container ">
     
-    <div (click)="toggle()" style="margin-top:5%">
+    <div (click)="toggle() " style="margin-top:5% ">
         Toggle
     </div>
     <hr>
-    <div [hidden]="!visible">
+    <div [hidden]="!visible ">
         <app-forms-builder></app-forms-builder>
     </div>
 
 </div> -->
-<!-- <div class="container">
+<!-- <div class="container ">
     <h1>app component</h1>
     <hr>
-    <div class="row">
-        <div class="col-xs-12">
+    <div class="row ">
+        <div class="col-xs-12 ">
             <app-servers></app-servers>
             
         </div>
@@ -55,52 +82,52 @@
 <!-- Template driven form -->
 <!-- <section>
     <h1>Template driven Form example</h1>
-    <form #f="ngForm" (ngSubmit)="onSubmitTemplateBased" >
+    <form #f="ngForm " (ngSubmit)="onSubmitTemplateBased " >
         <p>
-            <label for="">First Name:</label>
-            <input type="text"
-            name="firstName"
-                [(ngModel)]="user.firstName" required>
+            <label for=" ">First Name:</label>
+            <input type="text "
+            name="firstName "
+                [(ngModel)]="user.firstName " required>
         </p>
         <p>
-            <label for="">Password:</label>
-            <input type="password" 
-            name="password"
-            [(ngModel)]="user.password" required >
+            <label for=" ">Password:</label>
+            <input type="password " 
+            name="password "
+            [(ngModel)]="user.password " required >
         </p>
         <p>
-            <button type="submit" class="btn btn-primary"
-            [disabled]="!f.valid" >Submit</button>
+            <button type="submit " class="btn btn-primary "
+            [disabled]="!f.valid " >Submit</button>
         </p>
     </form>
 </section> -->
 
 <!-- Only Initializing components -->
-<!-- <form #f="ngForm">
+<!-- <form #f="ngForm ">
         <p>
                 <label>First Name:</label>
-                <input type="text" [ngModel]="user.firstName" required>
+                <input type="text " [ngModel]="user.firstName " required>
             </p>
             <p>
                 <label>Password:</label>
-                <input type="password" [ngModel]="user.password" required>
+                <input type="password " [ngModel]="user.password " required>
             </p>
             <p>
-                <button type="submit" [disabled]="!f.valid">Submit</button>
+                <button type="submit " [disabled]="!f.valid ">Submit</button>
             </p>
 </form> -->
 
 <!-- Without [ngModel] validation -->
-<!-- <form action="" #f="ngForm">
+<!-- <form action=" " #f="ngForm ">
     <p>
-        <label for="">First Name:</label>
-        <input type="text" name="firstName" required ngModel>
+        <label for=" ">First Name:</label>
+        <input type="text " name="firstName " required ngModel>
     </p>
     <p>
-        <label for="">Password:</label>
-        <input type="password" name="password" required ngModel>
+        <label for=" ">Password:</label>
+        <input type="password " name="password " required ngModel>
     </p>
     <p>
-        <button [disabled]="!f.valid">Submit</button>
+        <button [disabled]="!f.valid ">Submit</button>
     </p>
 </form> -->

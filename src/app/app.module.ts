@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -13,7 +15,16 @@ import { NameParentComponent } from './component-interaction/name-parent/name-pa
 import { NameChildComponent } from './component-interaction/name-child/name-child.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
+import { CustomeDirectiveComponent } from './custom-directive/custome-directive/custome-directive.component';
+import { CustomeDirectiveDirective } from './custom-directive/custome-directive.directive';
 
+
+const appRoutes: Routes = [
+  { path: '', component: ReactiveFormsDemoComponent },
+  { path: 'customdirective', component: CustomeDirectiveComponent },
+  { path: 'forms', component: FormsComponent },
+  { path: '@input_@output', component: NameParentComponent }
+];
 
 @NgModule({
   declarations: [
@@ -27,12 +38,15 @@ import { ServerElementComponent } from './server-element/server-element.componen
     NameChildComponent,
     CockpitComponent,
     ServerElementComponent,
+    CustomeDirectiveComponent,
+    CustomeDirectiveDirective,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
