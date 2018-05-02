@@ -1,15 +1,46 @@
+<!-- Component interaction with @input -->
+<div class="container">
+    <app-cockpit 
+    (serverCreated)="onServerAdded($event)"
+    (blueprintCreated)="onBlueprintAdded($event)"
+    
+     ></app-cockpit>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <app-server-element 
+            *ngFor="let serverElement of serverElements" 
+            [srvElement]="serverElement" ></app-server-element>
+        </div>
+    </div>
+</div>
+
+
+<!-- Component interraction (@Input) -->
+<!-- <app-name-parent></app-name-parent> -->
+
+
 <!-- <div class="container">
     <app-forms></app-forms>
 </div> -->
 
+<!-- Reactive forms -->
 <!-- <div class="container">
     <h2 style="color: blue;">Angular Reactive Forms</h2>
     <app-reactive-forms-demo></app-reactive-forms-demo>
 </div> -->
 
-<div class="container">
-    <app-forms-builder></app-forms-builder>
-</div>
+<!-- <div class="container">
+    
+    <div (click)="toggle()" style="margin-top:5%">
+        Toggle
+    </div>
+    <hr>
+    <div [hidden]="!visible">
+        <app-forms-builder></app-forms-builder>
+    </div>
+
+</div> -->
 <!-- <div class="container">
     <h1>app component</h1>
     <hr>
