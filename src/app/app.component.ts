@@ -15,11 +15,21 @@ export class AppComponent implements OnInit {
   // @Output() close = new EventEmitter<any>();
   // visible = true;
   // title = 'app';
+  isTrue = true;
   serverElements = [{ type: 'server', name: 'TestServer', content: 'This is a test Server' }];
+  isCollapsed = true;
+  showDropdown() {
+    this.isTrue = !this.isTrue;
+  }
+  collapsed() {
+    this.isCollapsed = !this.isCollapsed;
+  }
 
   constructor() { }
 
   ngOnInit() {
+    this.collapsed();
+    this.showDropdown();
   }
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({

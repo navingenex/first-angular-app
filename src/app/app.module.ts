@@ -18,6 +18,7 @@ import { ServerElementComponent } from './server-element/server-element.componen
 import { CustomeDirectiveComponent } from './custom-directive/custome-directive/custome-directive.component';
 import { CustomeDirectiveDirective } from './custom-directive/custome-directive.directive';
 import { UnlessDirective } from './custom-directive/unless.directive';
+import { DropdownDirective } from './custom-directive/dropdown.directive';
 
 
 const appRoutes: Routes = [
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     CustomeDirectiveComponent,
     CustomeDirectiveDirective,
     UnlessDirective,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
