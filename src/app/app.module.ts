@@ -17,6 +17,7 @@ import { CockpitComponent } from './cockpit/cockpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { CustomeDirectiveComponent } from './custom-directive/custome-directive/custome-directive.component';
 import { CustomeDirectiveDirective } from './custom-directive/custome-directive.directive';
+import { UnlessDirective } from './custom-directive/unless.directive';
 
 
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     ServerElementComponent,
     CustomeDirectiveComponent,
     CustomeDirectiveDirective,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,

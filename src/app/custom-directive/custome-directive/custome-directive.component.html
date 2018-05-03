@@ -1,8 +1,41 @@
 <h3 class="lead">Custome Directive</h3>
 <hr>
 <h4>@HostListener</h4>
-<p 
-appCustomeDirective 
-[defaultColor]="'blue'"   
-[hilightColor]="'#e80de8'" 
->Style me using basic directive</p>
+<p appCustomeDirective [defaultColor]="'blue'" [hilightColor]="'#e80de8'">Style me using basic directive</p>
+
+<hr>
+<button class="btn btn-success" (click)="onChange()" >Change</button>
+<div  *appUnless="onlyOdd">
+    <li 
+    class="list-group-item" 
+    [ngClass]="{'even': even%2===0}"
+    [ngStyle]="{'backgroundColor': even %2 === 0?'yellow':'transparent'}"
+    *ngFor="let even of evenNumbers"
+    >
+        {{even}}
+    </li>
+</div>
+<div *appUnless="!onlyOdd">
+    <li 
+    class="list-group-item" 
+    [ngClass]="{'odd': odd%2!==0}"
+    [ngStyle]="{'backgroundColor': odd%2!== 0 ? 'blue':'transparent'}"
+    *ngFor="let odd of oddNumbers"
+    >
+        {{odd}}
+    </li>
+</div>
+
+<hr>
+<p class="lead">NgSwitch</p>
+<span [ngSwitch]="switchValue">
+    <p *ngSwitchCase="5">
+        Value is 5
+    </p>
+    <p *ngSwitchCase="10">
+        Value is 10
+    </p>
+    <p *ngSwitchDefault>
+        Default value
+    </p>
+</span> 
