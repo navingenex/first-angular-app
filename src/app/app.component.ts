@@ -1,9 +1,13 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+
+import { AuthService } from './auth/auth.service';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
   // styles: [`
   // h1{
   //   color:red;
@@ -11,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   // `],
 })
 export class AppComponent implements OnInit {
+  isLoggedIn$: boolean;
   // @Output() open = new EventEmitter<any>();
   // @Output() close = new EventEmitter<any>();
   // visible = true;
@@ -25,11 +30,13 @@ export class AppComponent implements OnInit {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.collapsed();
     this.showDropdown();
+    this.isLoggedIn$ = this.authService.loggedIn;
+
   }
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({

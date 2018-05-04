@@ -1,9 +1,14 @@
+import { CanDeactivateGuard } from './guard/can-deactivate-guard';
+import { AuthGuard } from './guard/auth.guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
-
 import { HttpModule } from '@angular/http';
+
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+
+import { AppRoutingModule } from './app.routing.module';
+
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -19,14 +24,9 @@ import { CustomeDirectiveComponent } from './custom-directive/custome-directive/
 import { CustomeDirectiveDirective } from './custom-directive/custome-directive.directive';
 import { UnlessDirective } from './custom-directive/unless.directive';
 import { DropdownDirective } from './custom-directive/dropdown.directive';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
+import { AuthService } from './auth/auth.service';
 
-
-const appRoutes: Routes = [
-  { path: '', component: ReactiveFormsDemoComponent },
-  { path: 'customdirective', component: CustomeDirectiveComponent },
-  { path: 'forms', component: FormsComponent },
-  { path: '@input_@output', component: NameParentComponent }
-];
 
 @NgModule({
   declarations: [
@@ -44,15 +44,17 @@ const appRoutes: Routes = [
     CustomeDirectiveDirective,
     UnlessDirective,
     DropdownDirective,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule,
+    FlashMessagesModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard,CanDeactivateGuard, FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

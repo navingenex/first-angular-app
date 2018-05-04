@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-    <button class="navbar-toggler collapsed" (click)="collapsed()"  [ngClass]="{'collapsed':isCollapsed}" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-        aria-expanded="false" aria-label="Toggle navigation" style="">
+    <button class="navbar-toggler collapsed" (click)="collapsed()" [ngClass]="{'collapsed':isCollapsed}" type="button" data-toggle="collapse"
+        data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" [ngClass]="{'show': !isCollapsed?true:false}" id="navbarColor01" style="">
@@ -14,16 +14,17 @@
             <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link " routerLink="/forms">Forms</a>
             </li>
-            <li class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <li *ngIf="authService.loggedIn" class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link " routerLink="/@input_@output">@Input@Output</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <!--Custome directive appDropdown used to change add remoce shoe class -->
-            <li class="nav-item dropdown" appDropdown style="margin-right: 50px;"  (click)=showDropdown() routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link dropdown-toggle" role="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="isTrue?false:true">Dropdown link
+            <li class="nav-item dropdown" appDropdown style="margin-right: 50px;" (click)=showDropdown() routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" role="button" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="isTrue?false:true">Dropdown link
                 </a>
-                <div class="dropdown-menu"  [ngClass]="{'show': isTrue}" aria-labelledby="navbarDropdownMenuLink">
+                <div class="dropdown-menu" [ngClass]="{'show': isTrue}" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
@@ -33,6 +34,7 @@
     </div>
 </nav>
 <div class=" container ">
+    <flash-messages></flash-messages>
     <router-outlet></router-outlet>
 </div>
 <!-- Component interaction with @input -->

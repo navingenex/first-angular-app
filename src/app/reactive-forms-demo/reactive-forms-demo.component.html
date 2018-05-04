@@ -1,19 +1,17 @@
+<button class="btn btn-success"(click)="onLogin()">Login</button>
+<button class="btn btn-danger" (click)="onLogout()">Logout</button>
 <form novalidate [formGroup]="form" (ngSubmit)="addUser(form)">
   <div class="form-group">
     <label for="">Name</label>
-    <input 
-    type="text" 
-    class="form-control" 
-    formControlName="name"
-   >
+    <input type="text" class="form-control" formControlName="name">
   </div>
-  <div *ngIf="form.get('name').invalid && form.get('name').touched"   class="alert alert-danger">
+  <div *ngIf="form.get('name').invalid && form.get('name').touched" class="alert alert-danger">
     <div *ngIf="form.get('name').hasError('required') ">
       Name is required
     </div>
     <div *ngIf="form.get('name').hasError('pattern')">
-        Invalid Name
-      </div>
+      Invalid Name
+    </div>
   </div>
   <div class="form-group">
     <label for="">Contact(Mobile no.)</label>
